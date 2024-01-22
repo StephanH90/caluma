@@ -104,8 +104,10 @@ class BaseField:
             # are weird when comparing to the ones Django expects
             # (Note they're still correct, just not labeled in a
             # useful way)
-            current_tz = timezone.get_current_timezone()
-            return current_tz.normalize(value)
+            return value
+            # current_tz = timezone.get_current_timezone()
+            # breakpoint()
+            # return current_tz.normalize(value)
 
         return value
 

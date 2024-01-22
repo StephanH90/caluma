@@ -2,7 +2,7 @@
 
 import localized_fields.fields.field
 from django.db import migrations
-
+import json
 
 def set_name_and_description(apps, schema_editor):
     WorkItem = apps.get_model("caluma_workflow", "WorkItem")
@@ -39,7 +39,7 @@ class Migration(migrations.Migration):
             model_name="historicalworkitem",
             name="name",
             field=localized_fields.fields.field.LocalizedField(
-                default={"de": "temp_placeholder"},
+                default=json.dumps({"de": "temp_placeholder"}),
                 help_text="Will be set from Task, if not provided.",
                 required=[],
             ),
@@ -59,7 +59,7 @@ class Migration(migrations.Migration):
             model_name="workitem",
             name="name",
             field=localized_fields.fields.field.LocalizedField(
-                default={"de": "temp_placeholder"},
+                default=json.dumps({"de": "temp_placeholder"}),
                 help_text="Will be set from Task, if not provided.",
                 required=[],
             ),
